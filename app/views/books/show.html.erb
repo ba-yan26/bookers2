@@ -6,13 +6,13 @@
         <%= link_to user_path(@book.user_id) do %>
           <%= image_tag @book.user.get_image %>
         <% end %>
-        <%= link_to @book.user.name, user_path %>
+        <%= link_to @book.user.name, user_path(@book.user_id) %>
       </td>
       <td><%= link_to @book.title, book_path %></td>
       <td><%= @book.opinion %></td>
       <% if @book.user == current_user %>
       <td><%= link_to "Edit", edit_book_path %></td>
-      <td><%= link_to "Destroy", book_path(@book), method: :delete %></td>
+      <td><%= link_to "Destroy", book_path, method: :delete %></td>
       <% end %>
     </tr>
   </tbody>
