@@ -1,30 +1,12 @@
-<h1>User info</h1>
-
-<table>
-  <tbody>
-    <tr>
-      <th>name</th>
-      <th><%= @book.user.name %></th>
-    </tr>
-    <tr>
-      <th>introduction</th>
-      <th><%= @book.user.introduction %></th>
-    </tr>
-  </tbody>
-</table>
-
-<h1>New Book</h1>
-
-<%= form_with model:@book, url: books_path, method: :post, local:true do |f| %>
-  <p>Title</p>
-  <%= f.text_field :title %>
-  <p>Opinion</p>
-  <%= f.text_area :opinion %><br>
-  <%= f.submit "Create Book" %>
+<% if flash[:notice] %>
+  <p class="notice">
+    <%= flash[:notice] %>
+  </p>
 <% end %>
 
-<h1>Books</h1>
+<%= render partial: 'list', locals: { user: @user, book: @book } %>
 
+<h1>Books</h1>
 <table>
 <thead>
   <tr>
