@@ -1,5 +1,18 @@
-<!--<h1>User info</h1>-->
-<!--  <%= image_tag @book.current_user.get_image %>-->
+<h1>User info</h1>
+
+<table>
+  <tbody>
+    <tr>
+      <th>name</th>
+      <th><%= @book.user.name %></th>
+    </tr>
+    <tr>
+      <th>introduction</th>
+      <th><%= @book.user.introduction %></th>
+    </tr>
+  </tbody>
+</table>
+
 <h1>New Book</h1>
 
 <%= form_with model:@book, url: books_path, method: :post, local:true do |f| %>
