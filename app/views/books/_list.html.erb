@@ -1,5 +1,20 @@
+<% if book.errors.any? %>
+  <%= book.errors.count %> errors prohibited this obj from being saved:
+    <ul>
+    <% book.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+<% end %>
+
+<% if flash[:notice] %>
+  <p class="notice">
+    <%= flash[:notice] %>
+  </p>
+<% end %>
+
 <h2>User info</h2>
-<%= image_tag user.get_image %>
+<%= image_tag user.get_image("63x63") %>
 <table>
   <tbody>
     <tr>
@@ -13,9 +28,11 @@
   </tbody>
 </table>
 
+<%= link_to "Profile edit", edit_user_path(user.id) %>
+
 <h2>New Book</h2>
 
-<%= form_with model:book, url: books_path, method: :post, local:true do |f| %>
+<%= form_with model:book, local:true do |f| %>
   <p>Title</p>
   <%= f.text_field :title %>
   <p>Opinion</p>
