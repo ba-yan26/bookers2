@@ -9,7 +9,7 @@
 <% end %>
   <div class="row">
     <div class="col-md-3">
-      <%= render partial: 'list', locals: { user: @user, book: @book } %>
+      <%= render partial: 'list', locals: { user: @user, book: Book.new } %>
     </div>
 
     <div class="col-md-8 offset-md-1">
